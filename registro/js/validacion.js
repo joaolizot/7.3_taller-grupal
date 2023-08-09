@@ -2,8 +2,24 @@ function showAlertSuccess() {
     document.getElementById("alert-success").classList.add("show");
 }
 
-function showAlertError() {
-    document.getElementById("alert-danger").classList.add("show");
+function showAlertError(message) {
+    const alertDanger = document.getElementById("alert-danger");
+    alertDanger.querySelector(".alert-message").textContent = message;
+    alertDanger.classList.add("show");
+
+    setTimeout(() => {
+        alertDanger.classList.remove("show");
+    }, 2000);
+}
+
+function clearFormFields() {
+    nombre.value = "";
+    apellido.value = "";
+    email.value = "";
+    password1.value = "";
+    password2.value = "";
+    terminos.checked = false;
+
 }
 
 function clearFormFields() {
@@ -34,13 +50,18 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
 
-      showAlertSuccess();
-      clearFormFields();
-      
-      document.getElementById("alert-success").classList.add("show");
-      setTimeout(function () {
-        document.getElementById("alert-success").classList.remove("show");
-      }, 3000);
-      
-    });
-  });
+    if (!terminos) {
+        showAlertError("Debe aceptar los términos y condiciones del servicio.");
+        return false;
+    }
+
+    showAlertSuccess();
+    return true;
+}
+
+document.getElementById("regBtn").addEventListener("click", function () {
+    if (validateForm()) {
+        clearFormFields();
+    }
+});
+
