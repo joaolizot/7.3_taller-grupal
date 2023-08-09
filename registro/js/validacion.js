@@ -3,8 +3,13 @@ function showAlertSuccess() {
 }
 
 function showAlertError(message) {
-    document.getElementById("alert-danger").classList.add("show");
-    document.getElementById("alert-danger").querySelector(".alert-message").textContent = message;
+    const alertDanger = document.getElementById("alert-danger");
+    alertDanger.querySelector(".alert-message").textContent = message;
+    alertDanger.classList.add("show");
+
+    setTimeout(() => {
+        alertDanger.classList.remove("show");
+    }, 2000);
 }
 
 function validateForm() {
@@ -37,4 +42,10 @@ function validateForm() {
 
     showAlertSuccess();
     return true;
-};
+}
+
+document.getElementById("regBtn").addEventListener("click", function() {
+    if (validateForm()) {
+        
+    }
+});
