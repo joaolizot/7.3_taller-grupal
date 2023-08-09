@@ -44,8 +44,9 @@ function validateForm() {
     return true;
 }
 
-document.getElementById("regBtn").addEventListener("click", function() {
+document.getElementById("regBtn").addEventListener("click", function () {
     if (validateForm()) {
-        
+
     }
 });
+
