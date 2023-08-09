@@ -10,6 +10,7 @@ function showAlertError(message) {
     setTimeout(() => {
         alertDanger.classList.remove("show");
     }, 2000);
+
 }
 
 function clearFormFields() {
@@ -19,6 +20,7 @@ function clearFormFields() {
     password1.value = "";
     password2.value = "";
     terminos.checked = false;
+
 
 }
 
@@ -45,6 +47,8 @@ function validateForm() {
         return false;
     }
 
+  }
+
     if (!terminos) {
         showAlertError("Debe aceptar los términos y condiciones del servicio.");
         return false;
@@ -58,4 +62,7 @@ document.getElementById("regBtn").addEventListener("click", function () {
     if (validateForm()) {
         clearFormFields();
     }
+
 });
+
+
