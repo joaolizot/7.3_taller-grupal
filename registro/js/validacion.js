@@ -47,7 +47,7 @@ function validateForm() {
         return false;
     }
 
-  }
+
 
     if (!terminos) {
         showAlertError("Debe aceptar los términos y condiciones del servicio.");
