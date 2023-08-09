@@ -36,7 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
       showAlertSuccess();
       clearFormFields();
-
+      
+      document.getElementById("alert-success").classList.add("show");
+      setTimeout(function () {
+        document.getElementById("alert-success").classList.remove("show");
+      }, 3000);
       
     });
   });
